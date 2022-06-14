@@ -1,0 +1,86 @@
+
+<div class="back">
+
+<form class="padder " [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+
+
+<div class="dpad " fxLayout="column" fxLayoutAlign="start stretch" fxLayoutGap= "20px" >
+
+
+  <mat-form-field appearance="fill">
+    <mat-label>First Name</mat-label>
+    <input matInput formControlName="firstName"  >
+
+    <mat-error *ngFor="let validation of validationMessages.firstName">
+      <mat-error class="error-message"   *ngIf="profileForm.get('firstName')?.hasError(validation.type)
+          && (profileForm.get('firstName')?.dirty || profileForm.get('firstName')?.touched)">
+                {{ validation.message }}
+      </mat-error>
+    </mat-error>
+
+  </mat-form-field>
+
+  <mat-form-field appearance="fill" >
+    <mat-label>Last Name</mat-label>
+    <input matInput  formControlName="lastName" >
+
+    <mat-error *ngFor="let validation of validationMessages.lastName">
+      <mat-error class="error-message"   *ngIf="profileForm.get('lastName')?.hasError(validation.type)
+          && (profileForm.get('lastName')?.dirty || profileForm.get('lastName')?.touched)">
+                {{ validation.message }}
+      </mat-error>
+    </mat-error>
+  </mat-form-field>
+
+
+  <mat-form-field appearance="fill" >
+    <mat-label>Phone number</mat-label>
+    <input matInput placeholder="ex. 876-974-2000" formControlName="phone" required>
+    <mat-icon matSuffix>phone</mat-icon>
+    <mat-hint>Include area code</mat-hint>
+
+    <mat-error *ngFor="let validation of validationMessages.phone">
+      <mat-error class="error-message"   *ngIf="profileForm.get('phone')?.hasError(validation.type)
+          && (profileForm.get('phone')?.dirty || profileForm.get('phone')?.touched)">
+                {{ validation.message }}
+      </mat-error>
+    </mat-error>
+
+  </mat-form-field>
+
+  <mat-form-field appearance="fill" >
+    <mat-label>Email</mat-label>
+    <input matInput placeholder="ex. pat@example.com" formControlName="email" >
+    <mat-error *ngFor="let validation of validationMessages.email">
+      <mat-error class="error-message"   *ngIf="profileForm.get('email')?.hasError(validation.type)
+          && (profileForm.get('email')?.dirty || profileForm.get('email')?.touched)">
+                {{ validation.message }}
+      </mat-error>
+    </mat-error>
+  </mat-form-field>
+
+
+
+
+
+
+
+
+</div>
+
+
+<button mat-raised-button color="primary" type="submit" [disabled]="!profileForm.valid">Submit</button>
+&nbsp;
+
+<button mat-raised-button color="primary" type="cancel" >Cancel</button>
+<!--
+&nbsp;
+
+<button mat-raised-button color="accent" (click)="openDialog()">Privacy Policy </button> -->
+
+</form>
+
+<br/>
+
+
+</div>
