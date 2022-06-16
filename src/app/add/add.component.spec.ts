@@ -1,28 +1,15 @@
-/* tslint:disable:no-unused-variable */
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { By } from '@angular/platform-browser';
-import { DebugElement } from '@angular/core';
+describe('Add User Component', () => {
 
-import { AddComponent } from './add.component';
-
-describe('AddComponent', () => {
-  let component: AddComponent;
-  let fixture: ComponentFixture<AddComponent>;
-
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ AddComponent ]
-    })
-    .compileComponents();
-  }));
+  let sut: { a?: any; };
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(AddComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+    sut = {}
+  })
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
-});
+  it('should be true', () => {
+    sut.a = true;
+
+    // arrange, act, assert
+    expect(sut.a).toBe(true);
+  })
+})
